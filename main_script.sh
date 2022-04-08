@@ -4,10 +4,9 @@ function check_sync {
 
 IOCFILE=/root/alienv/iocs/otx-hash-iocs.txt
 IOCFILE2=/root/alienv/iocs/otx-hash-iocs2.txt
-#IOCFILE3=/home/t6839299/Alienvault_hash/$(date +\%d-\%m-\%y_\%H\%M).ioc
-IOCFILE3=/home/t6839299/Alienvault_hash/Alienvault_hash_raw.ioc
-IOCFILE4=/home/t6839299/Alienvault_hash/Malicious_topic.txt
-LOGFILE=/home/t6839299/Alienvault_hash/alien_sync.log
+IOCFILE3=/home/'CHANGE_ME'/Alienvault_hash/Alienvault_hash_raw.ioc
+IOCFILE4=/home/'CHANGE_ME'/Alienvault_hash/Malicious_topic.txt
+LOGFILE=/home/'CHANGE_ME'/Alienvault_hash/alien_sync.log
 SYNC=$(awk 'FNR==NR {a[$0]++; next} !($0 in a)' $IOCFILE2 $IOCFILE)
 
 echo " " >> $LOGFILE
@@ -27,12 +26,12 @@ if [[ -n $SYNC ]]
 #   cat $IOCFILE3 >> $IOCFILE2
    echo "Weekly sync is done.Please go to /home/tpgvapt1/Alienvault_hash path to check the latest hash from Alienvault. "alien_sync.log" for more details."| mail -s "Alientvault hash update completed" jiale.sim@tpgtelecom.com.sg daren.lee@tpgtelecom.com.sg jack.lai@tpgtelecom.com.sg
    echo "$(date) [INFO] Sent weekly reminde email to jiale.sim , daren.lee and jack.lai" >> $LOGFILE
-   mkdir /home/t6839299/Alienvault_hash/Done/$(date +\%d-\%m-\%y_\%H\%M)
+   mkdir /home/'CHANGE_ME'/Alienvault_hash/Done/$(date +\%d-\%m-\%y_\%H\%M)
 
 else
   echo $(date)  ------------------------------- >> $IOCFILE3
   echo "NO NEW UPDATE" >> $IOCFILE3
-  echo "No new update is available." | mail -s "Alienvault hash no update this week" jiale.sim@tpgtelecom.com.sg daren.lee@tpgtelecom.com.sg jack.lai@tpgtelecom.com.sg
+  echo "No new update is available." | mail -s "Alienvault hash no update this week" 'CHANGE_ME'@gmail.com # change to your email or company email 
   echo "$(date) [ALERT] Error Occured OR No new data to feed." >> $LOGFILE
   echo $(date)  ------------------------------- >> $IOCFILE4
   echo "NO NEW UPDATE" >> $IOCFILE4
@@ -61,9 +60,9 @@ then
 # SHA1 , 40 length , 160 bits
 # SHA256 , 64 length , 256 bits
 
-echo "$MD5" > /home/t6839299/Alienvault_hash/alienvault_ioc/"$DATE"_alienv_md5.ioc
-echo "$SHA1" > /home/t6839299/Alienvault_hash/alienvault_ioc/"$DATE"_alienv_sha1.ioc
-echo "$SHA256" > /home/t6839299/Alienvault_hash/alienvault_ioc/"$DATE"_alienv_sha256.ioc
+echo "$MD5" > /home/'CHANGE_ME'/Alienvault_hash/alienvault_ioc/"$DATE"_alienv_md5.ioc
+echo "$SHA1" > /home/'CHANGE_ME'/Alienvault_hash/alienvault_ioc/"$DATE"_alienv_sha1.ioc
+echo "$SHA256" > /home/'CHANGE_ME'/Alienvault_hash/alienvault_ioc/"$DATE"_alienv_sha256.ioc
 
 else
  echo "$(date) [ALERT] Unable to proceed due to no Alienvault main raw file." >> $LOGFILE
@@ -79,13 +78,13 @@ fi
 
 function hash_2 {
 
-FINDMD5=$(find /home/t6839299/Alienvault_hash/alienvault_ioc -type f -name "*md5*")
-FINDSHA256=$(find /home/t6839299/Alienvault_hash/alienvault_ioc -type f -name "*sha256*")
-FINDSHA1=$(find /home/t6839299/Alienvault_hash/alienvault_ioc -type f -name "*sha1*")
-result=/home/t6839299/Alienvault_hash/alienvault_ioc/result_hash.ioc
-OUTPUTMD5=/home/t6839299/hashcheckV2/overall_server/md5/Output/*
-OUTPUTSHA1=/home/t6839299/hashcheckV2/overall_server/sha1/Output/*
-OUTPUTSHA256=/home/t6839299/hashcheckV2/overall_server/sha256/Output/*
+FINDMD5=$(find /home/'CHANGE_ME'/Alienvault_hash/alienvault_ioc -type f -name "*md5*")
+FINDSHA256=$(find /home/'CHANGE_ME'/Alienvault_hash/alienvault_ioc -type f -name "*sha256*")
+FINDSHA1=$(find /home/'CHANGE_ME'/Alienvault_hash/alienvault_ioc -type f -name "*sha1*")
+result=/home/'CHANGE_ME'/Alienvault_hash/alienvault_ioc/result_hash.ioc
+OUTPUTMD5=/home/'CHANGE_ME'/hashcheckV2/overall_server/md5/Output/*
+OUTPUTSHA1=/home/'CHANGE_ME'/hashcheckV2/overall_server/sha1/Output/*
+OUTPUTSHA256=/home/'CHANGE_ME'/hashcheckV2/overall_server/sha256/Output/*
 
 
 if [ -n "$FINDMD5" ]
@@ -100,7 +99,7 @@ then
      if [ -n "$outputmd5result" ]  # the result string is not null and return result
      then
         echo "$(date) [ALERT] 'MD5' compare found something please check!" >> $LOGFILE
-        echo "Process Done" | mail -s "Potential malicious MD5 found - Alienvault" jiale.sim@tpgtelecom.com.sg daren.lee@tpgtelecom.com.sg jack.lai@tpgtelecom.com.sg
+        echo "Process Done" | mail -s "Potential malicious MD5 found - Alienvault" 'CHANGE_ME'.gmail.com # change to your email or company email
 
      else
         echo "$(date) [INFO] Completed compare all 'MD5' hashes on all server" >> $LOGFILE
@@ -122,7 +121,8 @@ then
     if [ -n "$outputsha256result" ]
     then
        echo "$(date) [ALERT] 'SHA256' compare found something please check!" >> $LOGFILE
-       echo "Process Done" | mail -s "Potential malicious SHA256 found - Alienvault" jiale.sim@tpgtelecom.com.sg daren.lee@tpgtelecom.com.sg jack.lai@tpgtelecom.com.sg
+       echo "Process Done" | mail -s "Potential malicious SHA256 found - Alienvault" 'CHANGE_ME'.gmail.com # change to your email or company email
+
     else
        echo "$(date) [INFO] Completed compare all 'SHA256' hashes on all server" >> $LOGFILE
     fi
@@ -143,7 +143,7 @@ then
     if [ -n "$outputsha1result" ]
     then
        echo "$(date) [ALERT] 'SHA1' compare found something please check!" >> $LOGFILE
-       echo "Process Done" | mail -s "Potential malicious SHA1 found - Alienvault" jiale.sim@tpgtelecom.com.sg daren.lee@tpgtelecom.com.sg jack.lai@tpgtelecom.com.sg
+       echo "Process Done" | mail -s "Potential malicious SHA1 found - Alienvault" 'CHANGE_ME'.gmail.com # change to your email or company email
     else
         echo "$(date) [INFO] Completed compare all 'SHA1' hashes on all server" >> $LOGFILE
     fi
@@ -153,7 +153,7 @@ else
 fi
 
 
-cp $result /home/t6839299/Alienvault_hash/Done//$(date +\%d-\%m-\%y_\%H\%M)_result.ioc
+cp $result /home/'CHANGE_ME'/Alienvault_hash/Done//$(date +\%d-\%m-\%y_\%H\%M)_result.ioc
 
 }
 
@@ -163,7 +163,7 @@ cp $result /home/t6839299/Alienvault_hash/Done//$(date +\%d-\%m-\%y_\%H\%M)_resu
 
 function delete_hash {
 
-find /home/t6839299/Alienvault_hash/alienvault_ioc/ -mtime +5.5 -type f -name "*alienv*" -delete
+find /home/'CHANGE_ME'/Alienvault_hash/alienvault_ioc/ -mtime +5.5 -type f -name "*alienv*" -delete
 
 echo "$(date) [INFO] All hash ioc file longer then 5.5 days deleted" >> $LOGFILE
 
