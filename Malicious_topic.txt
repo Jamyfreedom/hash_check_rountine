@@ -1,0 +1,29 @@
+Thu Mar 24 00:00:02 +08 2022
+----------------------------------------
+Storm Cloud on the Horizon: GIMMICK Malware Strikes at macOS
+Clipper Malware disguised as AvD Crypto Stealer
+Cyberattack on Ukrainian enterprises using the DoubleZero
+Serpent, No Swiping! New Backdoor Targets French Entities with Unique Attack Chain
+APT35 Automates Initial Access Using ProxyShell
+s APT Attacks" https://download.ahnlab.com/global/brochure/Analysis%20Report%20of%20Kimsuky%20G
+Have Your Cake and Eat it Too? An Overview of UNC2891
+How the Malleable C2 Profile Makes Cobalt Strike Difficult to Detect
+Pandora Ransomware - The Box has been open for a while...
+Cyclops Blink Sets Sights on Asus Routers
+
+Thu Apr 7 00:00:02 +08 2022
+----------------------------------------
+Windows MetaStealer Malware Report
+Cicada: Chinese APT Group Widens Targeting in Recent Espionage Activity
+CaddyWiper Analysis: New Malware Attacking Ukraine
+FIN7 Power Hour: Adversary Archaeology and the Evolution of FIN7
+Complete dissection of an APK with a suspicious C2 Server
+State-sponsored Attack Groups Capitalise on Russia-Ukraine War for Cyber Espionage
+Malicious Word Documents Using MS Media Player (Impersonating AhnLab)
+Cyber \\u200b\\u200battack by UAC-0010 (Armageddon) on state institutions of the European Union
+Elephant Framework Delivered in Phishing Attacks Against Ukrainian Orgs
+Fresh TOTOLINK Vulnerabilities Picked Up by Beastmode Mirai Campaign
+Stolen Images Campaign Ends in Conti Ransomware
+Blackguard Info Stealer - Sophisticated Variant Spotted In The Wild
+Lazarus Trojanized DeFi app for delivering malware
+AcidRain: A Modem Wiper Rains Down on Europe
